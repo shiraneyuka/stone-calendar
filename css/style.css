@@ -1,0 +1,263 @@
+@charset "UTF-8";
+
+body {
+    background: #ececec;
+    width: 100vw;
+    height: 100vh;
+    color: #55aa5f;
+    font-family: "gill-sans-nova", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+}
+
+#calendar-wrapper {
+    width: 100vw;
+    height: 100vh;
+    max-width: 530px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#japan-month {
+    position: absolute;
+    top: 16px;
+    left: 8px;
+    font-size: 30px;
+    font-family: "vdl-gothicmincho", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transform: scale(1.9, 1);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    transform-origin: top left;
+}
+
+#clock {
+    letter-spacing: 0.25em;
+    font-size: 11px;
+    position: absolute;
+    top: 16px;
+    right: 8px;
+    font-family: "halogen", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#calendar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.month {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 16px;
+
+    & h1 {
+        text-align: left;
+        letter-spacing: 0.1em;
+        font-weight: 400;
+        font-size: 42px;
+        margin: 0;
+    }
+
+    & h2 {
+        font-size: 56px;
+        margin: 0;
+        line-height: 1;
+        font-family: "halogen", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+}
+
+table {
+    margin: 0 auto;
+}
+
+.week,
+.day {
+    width: 14%;
+    text-align: center;
+    letter-spacing: 0.2em;
+    padding: 6px 0;
+}
+
+.week {
+    font-size: 11px;
+}
+
+.day {
+    font-size: 16px;
+}
+
+.today {
+    position: relative;
+    color: #222222;
+}
+.today::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(/today.png) no-repeat center / contain;
+    width: 50px;
+    height: 30px;
+    z-index: -1;
+}
+
+#stones {
+    position: absolute;
+    bottom: 0;
+    /* 下から積む */
+    left: 50%;
+    transform: translateX(-50%);
+    /* コンテナ自体を中央揃え */
+    width: 50%;
+    /* 石を置く範囲 */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stone {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 1s ease-out;
+    max-width: 100%;
+    height: auto;
+}
+
+.stone:nth-child(1) {
+    width: 100%;
+}
+
+.stone:nth-child(2) {
+    width: 63.6%;
+}
+
+.stone:nth-child(3) {
+    width: 57.1%;
+}
+
+.stone:nth-child(4) {
+    width: 85.7%;
+}
+
+.stone:nth-child(5) {
+    width: 41.5%;
+}
+
+.stone:nth-child(6) {
+    width: 63.6%;
+}
+
+.stone:nth-child(7) {
+    width: 45.4%;
+}
+
+.stone:nth-child(8) {
+    width: 77.9%;
+}
+
+.stone:nth-child(9) {
+    width: 45.4%;
+}
+
+.stone:nth-child(10) {
+    width: 28.5%;
+}
+
+.stone:nth-child(11) {
+    width: 53.2%;
+}
+
+.stone:nth-child(12) {
+    width: 32.4%;
+}
+
+@media screen and (min-width: 768px) {
+	#japan-month {
+        font-size: 34px;
+    }
+
+    #clock {
+        font-size: 14px;
+    }
+
+    .month {
+
+        & h1 {
+            font-size: 54px;
+        }
+
+        & h2 {
+            font-size: 68px;
+        }
+    }
+
+    .week {
+        font-size: 15px;
+    }
+
+    .day {
+        font-size: 20px;
+    }
+
+    .today::before {
+        width: 60px;
+        height: 40px;
+    }
+}
+
+/* PCでデバイスが縦向きの場合 */
+@media (orientation: portrait) and (min-width: 1080px){
+    #calendar-wrapper {
+        max-width: none;
+    }
+
+    #japan-month {
+        font-size: 55px;
+    }
+
+    #clock {
+        font-size: 26px;
+    }
+
+    .month {
+
+        & h1 {
+            font-size: 100px;
+        }
+
+        & h2 {
+            font-size: 130px;
+        }
+    }
+
+    .week,
+    .day {
+        padding: 12px 0;
+    }
+
+    .week {
+        font-size: 28px;
+    }
+
+    .day {
+        font-size: 38px;
+    }
+
+    .today::before {
+        width: 100px;
+        height: 80px;
+    }
+
+}
