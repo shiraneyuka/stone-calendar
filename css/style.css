@@ -107,7 +107,7 @@ table {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url(/today.png) no-repeat center / contain;
+    background: url(/stone-calendar/today.png) no-repeat center / contain;
     width: 50px;
     height: 30px;
     z-index: -1;
